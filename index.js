@@ -24,13 +24,16 @@ var getEndpointSnippets = function(swagger, path, method, targets, values) {
   for (var j in targets) {
     var target = formatTarget(targets[j]);
     if (!target) throw new Error("Invalid target: " + targets[j]);
+    var content = snippet.convert(
+      target.language,
+      typeof target.library !== "undefined" ? target.library : null
+    );
+    content = content.replace("%7B", "{");
+    content = content.replace("%7D", "}");
     snippets.push({
       id: targets[j],
       title: target.title,
-      content: snippet.convert(
-        target.language,
-        typeof target.library !== "undefined" ? target.library : null
-      )
+      content: content
     });
   }
 
