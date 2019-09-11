@@ -166,7 +166,7 @@ var getQueryStrings = function(swagger, path, method, values) {
         queryStrings.push({
           name: param.name,
           value:
-            typeof values[param.name] === "undefined"
+            param.example || typeof values[param.name] === "undefined"
               ? typeof param.default === "undefined"
                 ? "SOME_" +
                   (param.type || param.schema.type).toUpperCase() +

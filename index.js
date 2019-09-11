@@ -28,8 +28,8 @@ var getEndpointSnippets = function(swagger, path, method, targets, values) {
       target.language,
       typeof target.library !== "undefined" ? target.library : null
     );
-    content = content.replace("%7B", "{");
-    content = content.replace("%7D", "}");
+    content = content.split("%7B").join("{");
+    content = content.split("%7D").join("}");
     snippets.push({
       id: targets[j],
       title: target.title,
@@ -63,8 +63,8 @@ var getSwaggerSnippets = function(swagger, targets) {
         target.language,
         typeof target.library !== "undefined" ? target.library : null
       );
-      content = content.replace("%7B", "{");
-      content = content.replace("%7D", "}");
+      content = content.split("%7B").join("{");
+      content = content.split("%7D").join("}");
       snippets.push({
         id: targets[j],
         title: target.title,
