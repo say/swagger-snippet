@@ -20,7 +20,7 @@
     "build": "browserify -g uglifyify ./index.js > ./dist/swaggersnippet.min.js"
   },
   "dependencies": {
-    "httpsnippet": "^1.16.7",
+    "httpsnippet": "^1.19.1",
     "openapi-sampler": "^1.0.0-beta.14"
   },
   "devDependencies": {
